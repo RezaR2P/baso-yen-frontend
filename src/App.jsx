@@ -1,6 +1,11 @@
-import { BrowserRouter } from 'react-router-dom';
-import Button from './components/Button';
-import Card from './components/Card';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/public/Home';
+import Produk from './pages/public/Produk';
+import Resep from './pages/public/Resep';
+import Artikel from './pages/public/Artikel';
+import Layanan from './pages/public/Layanan';
+import TentangKami from './pages/public/TentangKami';
+import Kontak from './pages/public/Kontak';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -9,32 +14,16 @@ const App = () => {
     <BrowserRouter>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <main className="flex-1 p-10">
-          <div className="p-10">
-            <h1>Test Komponen</h1>
-            <div className="flex gap-4">
-              <Button
-                variant="primary"
-                onClick={() => {
-                  console.log('primary di klik');
-                }}
-              >
-                Primary Button
-              </Button>
-              <Button
-                variant="secondary"
-                onClick={() => {
-                  console.log('secondary di klik');
-                }}
-              >
-                Secondary Button
-              </Button>
-            </div>
-            <Card className="mt-10">
-              <h2 className="font-bold text-xl mb-2">Baso Polos</h2>
-              <p className="text-gray-600">Bakso sapi pilihan tanpa isian</p>
-            </Card>
-          </div>
+        <main className="flex-1 ">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/produk" element={<Produk />} />
+            <Route path="/resep" element={<Resep />} />
+            <Route path="/artikel" element={<Artikel />} />
+            <Route path="/layanan" element={<Layanan />} />
+            <Route path="/tentang-kami" element={<TentangKami />} />
+            <Route path="/kontak" element={<Kontak />} />
+          </Routes>
         </main>
         <Footer />
       </div>
