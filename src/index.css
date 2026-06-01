@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+:root {
+  --color-primary: #f97316; /* oren utama */
+  --color-primary-dark: #ea580c; /* oren gelap untuk hover */
+  --color-black: #1a1a1a; /* hitam NeoBrutalism */
+  --color-white: #fffbf5; /* putih hangat */
+  --color-bg: #fff8f0; /* background utama */
+  --shadow-nb: 4px 4px 0 #1a1a1a; /* shadow NeoBrutalism */
+  --shadow-nb-lg: 6px 6px 0 #1a1a1a; /* shadow besar */
+  --shadow-nb-sm: 2px 2px 0 #1a1a1a; /* shadow kecil */
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-black);
+  font-family: 'Inter', sans-serif;
+}
