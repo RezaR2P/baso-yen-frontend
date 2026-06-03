@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 import { Link } from 'react-router-dom';
@@ -10,6 +13,39 @@ const Home = () => {
     { icon: '🌿', title: 'Tanpa Bahan Berbahaya', desc: 'Food grade standard' },
     { icon: '❄️', title: 'Fresh', desc: 'Produk selalu baru' },
     { icon: '⭐', title: 'Premium', desc: 'Rasa selezat di resto' },
+  ];
+
+  const testimoni = [
+    {
+      id: 1,
+      quote: 'Makan yamien enak nggak perlu repot, tinggal beli di baso Yen!',
+      name: 'Reza',
+      jabatan: 'CEO MBG',
+    },
+    {
+      id: 2,
+      quote: 'Makan yamien enak nggak perlu repot, tinggal beli di baso Yen!',
+      name: 'Reza',
+      jabatan: 'CEO MBG',
+    },
+    {
+      id: 3,
+      quote: 'Makan yamien enak nggak perlu repot, tinggal beli di baso Yen!',
+      name: 'Reza',
+      jabatan: 'CEO MBG',
+    },
+    {
+      id: 5,
+      quote: 'Makan yamien enak nggak perlu repot, tinggal beli di baso Yen!',
+      name: 'Reza',
+      jabatan: 'CEO MBG',
+    },
+    {
+      id: 6,
+      quote: 'Makan yamien enak nggak perlu repot, tinggal beli di baso Yen!',
+      name: 'Reza',
+      jabatan: 'CEO MBG',
+    },
   ];
 
   const [product, setProduct] = useState([]);
@@ -31,6 +67,7 @@ const Home = () => {
 
   return (
     <>
+      {/* ===== HERO ===== */}
       <section className="flex justify-between items-center px-16 py-20">
         {/* KIRI - Teks */}
         <div className="flex-1 max-w-lg">
@@ -67,6 +104,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ===== KEUNGGULAN ===== */}
       <section className="px-16 py-12 bg-white">
         <div className="grid grid-cols-4 gap-6">
           {keunggulan.map((item) => (
@@ -78,6 +116,8 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      {/* ===== PRODUK UNGGULAN ===== */}
       <section className="px-16 py-12">
         {/* Heading section */}
         <div className="flex justify-between items-center mb-8">
@@ -118,6 +158,54 @@ const Home = () => {
               ))}
           </div>
         )}
+      </section>
+
+      {/* ===== TESTIMONI ===== */}
+      <section className="px-16 py-12 bg-white">
+        <h2 className="font-black text-3xl mb-8">Kata Mereka</h2>
+        <div className="px-1 py-2">
+          <Swiper
+            modules={[Autoplay]}
+            slidesPerView={2}
+            spaceBetween={20}
+            autoplay={{ delay: 3000 }}
+            loop={true}
+            className="pb-2 px-1"
+          >
+            {testimoni.map((t) => (
+              <SwiperSlide key={t.id}>
+                <Card className="p-6 flex gap-6 items-center">
+                  <div className="w-24 h-24 rounded-full bg-primary border-2 border-black flex items-center justify-center font-black text-3xl shrink-0">
+                    {t.name[0]}
+                  </div>
+                  <div>
+                    <p className="text-sm italic mb-3">"{t.quote}"</p>
+                    <h3 className="font-black">{t.name}</h3>
+                    <p className="text-sm text-gray-500">{t.jabatan}</p>
+                  </div>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+
+      {/* ===== CTA MITRA ===== */}
+      <section className="bg-primary border-y-2 border-black px-16 py-12 flex justify-between items-center">
+        {/* KIRI */}
+        <div>
+          <h2 className="font-black text-3xl mb-2">
+            Tertarik jadi mitra bisnis?
+          </h2>
+          <p className="text-sm">
+            Reseller, cafe, resto, hotel — kami siap melayani
+          </p>
+        </div>
+
+        {/* KANAN */}
+        <Link to="/kontak">
+          <Button variant="secondary">Request Sampel</Button>
+        </Link>
       </section>
     </>
   );

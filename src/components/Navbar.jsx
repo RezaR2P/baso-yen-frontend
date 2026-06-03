@@ -28,7 +28,7 @@ const Navbar = () => {
     },
   ];
   return (
-    <nav className="bg-primary border-b-2 border-black px-8 py-4 flex justify-between items-center">
+    <nav className="bg-primary border-b-2 border-black px-8 py-4 flex justify-between items-center sticky top-0 z-50">
       {/* LOGO */}
       <Link to="/" className="font-black text-xl text-black">
         Baso Yen

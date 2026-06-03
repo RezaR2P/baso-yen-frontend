@@ -10,6 +10,9 @@
   --shadow-nb-lg: 6px 6px 0 #1a1a1a;
   --shadow-nb-sm: 2px 2px 0 #1a1a1a;
 }
+.swiper-slide {
+  height: auto;
+}
 
 body {
   background-color: var(--color-bg);
