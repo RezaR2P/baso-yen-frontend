@@ -68,7 +68,7 @@ const Home = () => {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="flex justify-between items-center px-16 py-20">
+      <section className="flex flex-col-reverse lg:flex-row justify-between items-center px-6 lg:px-16 py-12 lg:py-20 gap-8">
         {/* KIRI - Teks */}
         <div className="flex-1 max-w-lg">
           {/* Badge */}
@@ -99,14 +99,14 @@ const Home = () => {
         </div>
 
         {/* KANAN - Gambar */}
-        <div className="w-1/2 h-125 bg-gray-200 border-2 border-black shadow-nb flex items-center justify-center">
+        <div className="w-full lg:w-1/2 h-64 lg:h-125 bg-gray-200 border-2 border-black shadow-nb flex items-center justify-center">
           <p className="text-gray-400 font-semibold">Foto Produk</p>
         </div>
       </section>
 
       {/* ===== KEUNGGULAN ===== */}
-      <section className="px-16 py-12 bg-white">
-        <div className="grid grid-cols-4 gap-6">
+      <section className="px-6 lg:px-16 py-12 bg-white">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {keunggulan.map((item) => (
             <Card key={item.title} className="p-6 text-center">
               <div className="text-4xl mb-3">{item.icon}</div>
@@ -118,7 +118,7 @@ const Home = () => {
       </section>
 
       {/* ===== PRODUK UNGGULAN ===== */}
-      <section className="px-16 py-12">
+      <section className="px-6 lg:px-16 py-12">
         {/* Heading section */}
         <div className="flex justify-between items-center mb-8">
           <h2 className="font-black text-3xl">Produk Unggulan</h2>
@@ -131,7 +131,7 @@ const Home = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {product
               .filter((p) => p.is_featured === 1)
               .slice(0, 3)
@@ -161,7 +161,7 @@ const Home = () => {
       </section>
 
       {/* ===== TESTIMONI ===== */}
-      <section className="px-16 py-12 bg-white">
+      <section className="px-6 lg:px-16 py-12 bg-white">
         <h2 className="font-black text-3xl mb-8">Kata Mereka</h2>
         <div className="px-1 py-2">
           <Swiper
@@ -171,6 +171,10 @@ const Home = () => {
             autoplay={{ delay: 3000 }}
             loop={true}
             className="pb-2 px-1"
+            breakpoints={{
+              640: { slidesPerView: 2 },
+            }}
+            slidesPerView={1}
           >
             {testimoni.map((t) => (
               <SwiperSlide key={t.id}>
@@ -191,7 +195,7 @@ const Home = () => {
       </section>
 
       {/* ===== CTA MITRA ===== */}
-      <section className="bg-primary border-y-2 border-black px-16 py-12 flex justify-between items-center">
+      <section className="bg-primary border-y-2 border-black px-16 py-12 flex flex-col lg:flex-row justify-between items-center gap-6">
         {/* KIRI */}
         <div>
           <h2 className="font-black text-3xl mb-2">
