@@ -35,12 +35,12 @@ const Produk = () => {
       : products.filter((p) => p.category_id === selectedCategory);
 
   return (
-    <div className="px-16 py-12">
+    <div className="px-6 lg:px-16 py-12">
       {/* Heading */}
       <h1 className="font-black text-4xl mb-8">Produk Kami</h1>
 
       {/* Filter Kategori */}
-      <div className="flex gap-3 mb-8">
+      <div className="flex flex-wrap gap-3 mb-8">
         <Button
           variant={selectedCategory === null ? 'primary' : 'secondary'}
           onClick={() => setSelectedCategory(null)}
@@ -65,7 +65,7 @@ const Produk = () => {
       ) : filteredProducts.length === 0 ? (
         <p className="font-semibold">Tidak ada produk di kategori ini.</p>
       ) : (
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProducts.map((p) => (
             <Card key={p.id} className="overflow-hidden">
               <div className="w-full h-48 bg-gray-200 border-b-2 border-black flex items-center justify-center">

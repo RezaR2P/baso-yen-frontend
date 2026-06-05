@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <footer className="border-t-2 border-black bg-primary px-8 py-8">
+    <footer className="border-t-2 border-black bg-primary px-6 lg:px-8 py-8">
       {/* 4kolom */}
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* kolom 1 */}
         <div>
           <h3 className="font-black text-sm uppercase mb-3">Layanan Kami</h3>

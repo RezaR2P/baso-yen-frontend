@@ -22,19 +22,20 @@ const ProdukDetail = () => {
     fetchProduct();
   }, [slug]);
 
-  if (loading) return <p className="px-16 py-12">Loading...</p>;
-  if (!product) return <p className="px-16 py-12">Produk tidak ditemukan.</p>;
+  if (loading) return <p className="px-6 lg:px-16 py-12">Loading...</p>;
+  if (!product)
+    return <p className="px-6 lg:px-16 py-12">Produk tidak ditemukan.</p>;
 
   return (
-    <div className="px-16 py-12">
+    <div className="px-6 lg:px-16 py-12">
       {/* Tombol kembali */}
       <Link to="/produk" className="font-semibold underline mb-8 inline-block">
         ← Kembali ke Produk
       </Link>
 
-      <div className="flex gap-12 mt-6">
+      <div className="flex flex-col lg:flex-row gap-12 mt-6">
         {/* KIRI - Foto */}
-        <div className="w-96 h-96 bg-gray-200 border-2 border-black shadow-nb flex items-center justify-center flex-shrink-0">
+        <div className="w-full lg:w-96 h-64 lg:h-96 bg-gray-200 border-2 border-black shadow-nb flex items-center justify-center shrink-0">
           <p className="text-gray-400 font-semibold">Foto Produk</p>
         </div>
 
