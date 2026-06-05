@@ -9,6 +9,10 @@ const recipeService = {
     const response = await api.get(`/recipes/${id}`);
     return response.data;
   },
+  getBySlug: async (slug) => {
+    const response = await api.get(`/recipes/slug/${slug}`);
+    return response.data;
+  },
 };
 
 export default recipeService;

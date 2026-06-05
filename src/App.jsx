@@ -9,6 +9,7 @@ import Kontak from './pages/public/Kontak';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ProdukDetail from './pages/public/ProdukDetail';
+import ResepDetail from './pages/public/ResepDetail';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/tentang-kami" element={<TentangKami />} />
             <Route path="/kontak" element={<Kontak />} />
             <Route path="/produk/:slug" element={<ProdukDetail />} />
+            <Route path="/resep/:slug" element={<ResepDetail />} />
           </Routes>
         </main>
         <Footer />
