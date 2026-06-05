@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ProdukDetail from './pages/public/ProdukDetail';
 import ResepDetail from './pages/public/ResepDetail';
+import ArtikelDetail from './pages/public/ArtikelDetail';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/kontak" element={<Kontak />} />
             <Route path="/produk/:slug" element={<ProdukDetail />} />
             <Route path="/resep/:slug" element={<ResepDetail />} />
+            <Route path="/artikel/:slug" element={<ArtikelDetail />} />
           </Routes>
         </main>
         <Footer />
