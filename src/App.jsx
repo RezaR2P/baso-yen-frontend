@@ -11,6 +11,15 @@ import Footer from './components/Footer';
 import ProdukDetail from './pages/public/ProdukDetail';
 import ResepDetail from './pages/public/ResepDetail';
 import ArtikelDetail from './pages/public/ArtikelDetail';
+import Login from './pages/admin/Login';
+import Dashboard from './pages/admin/Dashboard';
+import Products from './pages/admin/Products';
+import Categories from './pages/admin/Categories';
+import Recipes from './pages/admin/Recipes';
+import Articles from './pages/admin/Articles';
+import Contacts from './pages/admin/Contacts';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
+import AdminLayout from './components/AdminLayout.jsx';
 
 const App = () => {
   return (
@@ -29,6 +38,67 @@ const App = () => {
             <Route path="/produk/:slug" element={<ProdukDetail />} />
             <Route path="/resep/:slug" element={<ResepDetail />} />
             <Route path="/artikel/:slug" element={<ArtikelDetail />} />
+            <Route path="/admin/login" element={<Login />} />
+            <Route
+              path="/admin/dashboard"
+              element={
+                <ProtectedRoute>
+                  <AdminLayout>
+                    <Dashboard />
+                  </AdminLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/products"
+              element={
+                <ProtectedRoute>
+                  <AdminLayout>
+                    <Products />
+                  </AdminLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/categories"
+              element={
+                <ProtectedRoute>
+                  <AdminLayout>
+                    <Categories />
+                  </AdminLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/recipes"
+              element={
+                <ProtectedRoute>
+                  <AdminLayout>
+                    <Recipes />
+                  </AdminLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/articles"
+              element={
+                <ProtectedRoute>
+                  <AdminLayout>
+                    <Articles />
+                  </AdminLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/contacts"
+              element={
+                <ProtectedRoute>
+                  <AdminLayout>
+                    <Contacts />
+                  </AdminLayout>
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
         <Footer />
