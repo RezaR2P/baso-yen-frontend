@@ -17,6 +17,10 @@ const productService = {
     const response = await api.get(`/products/slug/${slug}`);
     return response.data;
   },
+  getAllAdmin: async () => {
+    const response = await api.get('/products/admin/all');
+    return response.data;
+  },
   create: async (data) => {
     const response = await api.post('/products', data);
     return response.data;

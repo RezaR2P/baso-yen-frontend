@@ -13,6 +13,14 @@ const contactService = {
     const response = await api.post('/contacts', data);
     return response.data;
   },
+  updateStatus: async (id, status) => {
+    const response = await api.patch(`/contacts/${id}/status`, { status });
+    return response.data;
+  },
+  delete: async (id) => {
+    const response = await api.delete(`/contacts/${id}`);
+    return response.data;
+  },
 };
 
 export default contactService;

@@ -3,7 +3,7 @@ import productService from '../../services/productService.js';
 import categoryService from '../../services/categoryService.js';
 import Button from '../../components/Button.jsx';
 
-const AdminProducts = () => {
+const Products = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -25,7 +25,7 @@ const AdminProducts = () => {
   const fetchData = async () => {
     try {
       const [productsRes, categoriesRes] = await Promise.all([
-        productService.getAll(),
+        productService.getAllAdmin(),
         categoryService.getAll(),
       ]);
       setProducts(productsRes.data);
@@ -286,4 +286,4 @@ const AdminProducts = () => {
   );
 };
 
-export default AdminProducts;
+export default Products;
