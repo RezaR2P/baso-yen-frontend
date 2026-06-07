@@ -106,7 +106,7 @@ const Home = () => {
 
       {/* ===== KEUNGGULAN ===== */}
       <section className="px-6 lg:px-16 py-12 bg-white">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {keunggulan.map((item) => (
             <Card key={item.title} className="p-6 text-center">
               <div className="text-4xl mb-3">{item.icon}</div>
