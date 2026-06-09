@@ -6,7 +6,6 @@ const AdminContacts = () => {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedContact, setSelectedContact] = useState(null);
-  const statusOrder = { new: 0, read: 1, replied: 2 };
 
   useEffect(() => {
     fetchData();

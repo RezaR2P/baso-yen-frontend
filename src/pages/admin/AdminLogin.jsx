@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button.jsx';
 import authService from '../../services/authService.js';
 
-const Login = () => {
+const AdminLogin = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
@@ -87,4 +87,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;

@@ -10,13 +10,13 @@ import Kontak from './pages/public/Kontak';
 import ProdukDetail from './pages/public/ProdukDetail';
 import ResepDetail from './pages/public/ResepDetail';
 import ArtikelDetail from './pages/public/ArtikelDetail';
-import Login from './pages/admin/Login';
-import Dashboard from './pages/admin/Dashboard';
-import Products from './pages/admin/Products';
-import Categories from './pages/admin/Categories';
-import Recipes from './pages/admin/Recipes';
-import Articles from './pages/admin/Articles';
-import Contacts from './pages/admin/Contacts';
+import AdminLogin from './pages/admin/AdminLogin.jsx';
+import AdminDashboard from './pages/admin/AdminDashboard.jsx';
+import AdminProducts from './pages/admin/AdminProducts.jsx';
+import AdminCategories from './pages/admin/AdminCategories.jsx';
+import AdminRecipes from './pages/admin/AdminRecipes.jsx';
+import AdminArticles from './pages/admin/AdminArticles.jsx';
+import AdminContacts from './pages/admin/AdminContacts.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import AdminLayout from './components/AdminLayout.jsx';
 
@@ -39,13 +39,13 @@ const App = () => {
         </Route>
 
         {/* ADMIN  */}
-        <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route
           path="/admin/dashboard"
           element={
             <ProtectedRoute>
               <AdminLayout>
-                <Dashboard />
+                <AdminDashboard />
               </AdminLayout>
             </ProtectedRoute>
           }
@@ -55,7 +55,7 @@ const App = () => {
           element={
             <ProtectedRoute>
               <AdminLayout>
-                <Products />
+                <AdminProducts />
               </AdminLayout>
             </ProtectedRoute>
           }
@@ -65,7 +65,7 @@ const App = () => {
           element={
             <ProtectedRoute>
               <AdminLayout>
-                <Categories />
+                <AdminCategories />
               </AdminLayout>
             </ProtectedRoute>
           }
@@ -75,7 +75,7 @@ const App = () => {
           element={
             <ProtectedRoute>
               <AdminLayout>
-                <Recipes />
+                <AdminRecipes />
               </AdminLayout>
             </ProtectedRoute>
           }
@@ -85,7 +85,7 @@ const App = () => {
           element={
             <ProtectedRoute>
               <AdminLayout>
-                <Articles />
+                <AdminArticles />
               </AdminLayout>
             </ProtectedRoute>
           }
@@ -95,7 +95,7 @@ const App = () => {
           element={
             <ProtectedRoute>
               <AdminLayout>
-                <Contacts />
+                <AdminContacts />
               </AdminLayout>
             </ProtectedRoute>
           }

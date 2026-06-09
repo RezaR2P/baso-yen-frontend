@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import categoryService from '../../services/categoryService.js';
 import Button from '../../components/Button.jsx';
 
-const Categories = () => {
+const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -150,4 +150,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default AdminCategories;

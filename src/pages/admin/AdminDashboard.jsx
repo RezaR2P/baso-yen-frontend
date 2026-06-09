@@ -4,7 +4,7 @@ import recipeService from '../../services/recipeService.js';
 import articleService from '../../services/articleService.js';
 import contactService from '../../services/contactService.js';
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const [stats, setStats] = useState({
     products: 0,
     recipes: 0,
@@ -94,4 +94,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;
