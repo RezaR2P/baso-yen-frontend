@@ -34,7 +34,19 @@ const ArtikelDetail = () => {
 
       {/* Thumbnail */}
       <div className="w-full h-64 lg:h-96 bg-gray-200 border-2 border-black shadow-nb flex items-center justify-center mt-6 mb-8">
-        <p className="text-gray-400 font-semibold">Foto Artikel</p>
+        {article.thumbnail_url ? (
+          <img
+            src={`${import.meta.env.VITE_SERVER_URL}${article.thumbnail_url}`}
+            alt={article.title}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = 'https://via.placeholder.com/300?text=No+Image';
+            }}
+          />
+        ) : (
+          <p className="text-gray-400 text-sm">Tidak ada foto</p>
+        )}
       </div>
 
       {/* Judul */}

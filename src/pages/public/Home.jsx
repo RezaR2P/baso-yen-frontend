@@ -138,8 +138,22 @@ const Home = () => {
               .map((p) => (
                 <Card key={p.id} className="overflow-hidden">
                   {/* Foto */}
-                  <div className="w-full h-48 bg-gray-200 border-b-2 border-black flex items-center justify-center">
-                    <p className="text-gray-400 text-sm">Foto Produk</p>
+                  <div className="w-full h-48 bg-gray-200 border-b-2 border-black flex items-center justify-center overflow-hidden">
+                    {p.image_url ? (
+                      <img
+                        // Gunakan variabel serverUrl, bukan localhost lagi
+                        src={`${import.meta.env.VITE_SERVER_URL}${p.image_url}`}
+                        alt={p.name}
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src =
+                            'https://via.placeholder.com/300?text=Image+Not+Found';
+                        }}
+                      />
+                    ) : (
+                      <p className="text-gray-400 text-sm">Tidak ada foto</p>
+                    )}
                   </div>
 
                   {/* Info produk */}

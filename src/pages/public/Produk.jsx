@@ -68,8 +68,21 @@ const Produk = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProducts.map((p) => (
             <Card key={p.id} className="overflow-hidden">
-              <div className="w-full h-48 bg-gray-200 border-b-2 border-black flex items-center justify-center">
-                <p className="text-gray-400 text-sm">Foto Produk</p>
+              <div className="w-full h-48 bg-gray-200 border-b-2 border-black flex items-center justify-center ">
+                {p.image_url ? (
+                  <img
+                    src={`${import.meta.env.VITE_SERVER_URL}${p.image_url}`}
+                    alt={p.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        'https://via.placeholder.com/300?text=No+Image';
+                    }}
+                  />
+                ) : (
+                  <p className="text-gray-400 text-sm">Tidak ada foto</p>
+                )}
               </div>
               <div className="p-4">
                 <h3 className="font-black text-lg mb-1">{p.name}</h3>

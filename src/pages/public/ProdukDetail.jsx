@@ -35,8 +35,20 @@ const ProdukDetail = () => {
 
       <div className="flex flex-col lg:flex-row gap-12 mt-6">
         {/* KIRI - Foto */}
-        <div className="w-full lg:w-96 h-64 lg:h-96 bg-gray-200 border-2 border-black shadow-nb flex items-center justify-center shrink-0">
-          <p className="text-gray-400 font-semibold">Foto Produk</p>
+        <div className="w-full lg:w-96 h-64 lg:h-96 bg-gray-200 border-2 border-black shadow-nb flex items-center justify-center shrink-0 overflow-hidden">
+          {product.image_url ? (
+            <img
+              src={`${import.meta.env.VITE_SERVER_URL}${product.image_url}`}
+              alt={product.name}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'https://via.placeholder.com/300?text=No+Image';
+              }}
+            />
+          ) : (
+            <p className="text-gray-400 text-sm">Tidak ada foto</p>
+          )}
         </div>
 
         {/* KANAN - Info */}

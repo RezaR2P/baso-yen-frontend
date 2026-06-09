@@ -33,7 +33,20 @@ const Resep = () => {
             <Card key={r.id} className="overflow-hidden">
               {/* Foto */}
               <div className="w-full h-48 bg-gray-200 border-b-2 border-black flex items-center justify-center">
-                <p className="text-gray-400 text-sm">Foto Resep</p>
+                {r.image_url ? (
+                  <img
+                    src={`${import.meta.env.VITE_SERVER_URL}${r.image_url}`}
+                    alt={r.name}
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        'https://via.placeholder.com/300?text=No+Image';
+                    }}
+                  />
+                ) : (
+                  <p className="text-gray-400 text-sm">Tidak ada foto</p>
+                )}
               </div>
               {/* Info */}
               <div className="p-4">

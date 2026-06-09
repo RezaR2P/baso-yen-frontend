@@ -37,7 +37,19 @@ const ResepDetail = () => {
       <div className="flex flex-col lg:flex-row gap-12 mt-6 mb-12">
         {/* Foto */}
         <div className="w-full lg:w-96 h-64 lg:h-96 bg-gray-200 border-2 border-black shadow-nb flex items-center justify-center shrink-0">
-          <p className="text-gray-400 font-semibold">Foto Resep</p>
+          {recipe.image_url ? (
+            <img
+              src={`${import.meta.env.VITE_SERVER_URL}${recipe.image_url}`}
+              alt={recipe.name}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'https://via.placeholder.com/300?text=No+Image';
+              }}
+            />
+          ) : (
+            <p className="text-gray-400 text-sm">Tidak ada foto</p>
+          )}
         </div>
 
         {/* Judul + Info — TARUH DI SINI */}

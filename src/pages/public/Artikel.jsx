@@ -36,7 +36,20 @@ const Artikel = () => {
             <Card key={a.id} className="overflow-hidden">
               {/* Thumbnail */}
               <div className="w-full h-48 bg-gray-200 border-b-2 border-black flex items-center justify-center">
-                <p className="text-gray-400 text-sm">Foto Artikel</p>
+                {a.thumbnail_url ? (
+                  <img
+                    src={`${import.meta.env.VITE_SERVER_URL}${a.thumbnail_url}`}
+                    alt={a.title}
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        'https://via.placeholder.com/300?text=No+Image';
+                    }}
+                  />
+                ) : (
+                  <p className="text-gray-400 text-sm">Tidak ada foto</p>
+                )}
               </div>
 
               {/* Info */}
