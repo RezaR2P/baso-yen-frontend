@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/LOGO YEN.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,18 @@ const Navbar = () => {
   return (
     <nav className="bg-primary border-b-2 border-black sticky top-0 z-50">
       {/* BAR UTAMA */}
-      <div className="px-6 py-4 flex justify-between items-center">
+      <div className="px-6 py-1 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="font-black text-xl text-black">
-          Baso Yen
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logo} alt="Baso Yen" className="h-16 w-auto" />
+          <div className="flex flex-col">
+            <span className="font-black text-lg text-black leading-none">
+              Baso Yen
+            </span>
+            <span className="text-xs font-semibold text-black">
+              Mie · Baso · Sosis
+            </span>
+          </div>
         </Link>
 
         {/* Links — hidden di HP, muncul di desktop */}

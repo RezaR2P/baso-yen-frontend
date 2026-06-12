@@ -98,9 +98,45 @@ const Home = () => {
           </div>
         </div>
 
-        {/* KANAN - Gambar */}
-        <div className="w-full lg:w-1/2 h-64 lg:h-125 bg-gray-200 border-2 border-black shadow-nb flex items-center justify-center">
-          <p className="text-gray-400 font-semibold">Foto Produk</p>
+        {/* KANAN - Gambar Carousel */}
+        <div className="w-full lg:w-1/2 h-64 lg:h-125 border-2 border-black shadow-nb overflow-hidden shrink-0">
+          {loading ? (
+            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+              <p className="text-gray-400">Loading...</p>
+            </div>
+          ) : (
+            <Swiper
+              modules={[Autoplay]}
+              slidesPerView={1}
+              autoplay={{ delay: 3000 }}
+              loop={true}
+              className="w-full h-full"
+            >
+              {product
+                .filter((p) => p.is_featured === 1)
+                .slice(0, 5)
+                .map((p) => (
+                  <SwiperSlide key={p.id}>
+                    <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                      {p.image_url ? (
+                        <img
+                          src={`${import.meta.env.VITE_SERVER_URL}${p.image_url}`}
+                          alt={p.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src =
+                              'https://via.placeholder.com/600x500?text=Baso+Yen';
+                          }}
+                        />
+                      ) : (
+                        <p className="text-gray-400 font-semibold">{p.name}</p>
+                      )}
+                    </div>
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+          )}
         </div>
       </section>
 
