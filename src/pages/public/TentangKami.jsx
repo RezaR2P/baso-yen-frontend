@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button.jsx';
+import toko from '../../assets/toko.jpg';
 
 const TentangKami = () => {
   const timeline = [
@@ -47,8 +48,12 @@ const TentangKami = () => {
             <Button variant="primary">Hubungi Kami</Button>
           </Link>
         </div>
-        <div className="w-full lg:w-96 h-64 lg:h-96 bg-gray-200 border-2 border-black shadow-nb flex items-center justify-center shrink-0">
-          <p className="text-gray-400 font-semibold">Foto Pabrik</p>
+        <div className="w-full lg:w-96 h-64 lg:h-96 border-2 border-black shadow-nb shrink-0 overflow-hidden">
+          <img
+            src={toko}
+            alt="Toko Baso Yen"
+            className="w-full h-full contain-cover"
+          />
         </div>
       </div>
 
